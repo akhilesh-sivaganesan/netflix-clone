@@ -1,9 +1,24 @@
 import MagnifyingGlassIcon from "@heroicons/react/24/outline/MagnifyingGlassIcon"
 import BellIcon from "@heroicons/react/24/outline/BellIcon"
 import Link from "next/link";
+import {useState, useEffect } from 'react';
 function Header() {
+    const [isScrolled, setIsScrolled] = useState(false);
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        }
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        } 
+    }, [])
     return (
-        <header>
+        <header className={`${isScrolled && 'bg-red-500'}`}>
             <div className="flex items-center space-x-2 md:space-x-10">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
                     width={100}
