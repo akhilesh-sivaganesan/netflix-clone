@@ -6,7 +6,7 @@ import { modalState, movieState } from "../atoms/modalAtom"
 import { useEffect, useState } from "react";
 import ReactPlayer from 'react-player/lazy';
 import { FaPlay } from "react-icons/fa";
-import { HandThumbUpIcon, PlusIcon } from "@heroicons/react/24/outline";
+import { HandThumbUpIcon, PlusIcon, SpeakerWaveIcon, SpeakerXMarkIcon } from "@heroicons/react/24/outline";
 
 
 function Modal() {
@@ -76,6 +76,13 @@ function Modal() {
                         </button>
                         <button className="modalButton">
                             <HandThumbUpIcon className='h-7 w-7'/>
+                        </button>
+                        <button onClick={() => setMuted(!muted)}>
+                            {muted ? (
+                                <SpeakerXMarkIcon className="h-6 w-6" />
+                            ) : (
+                                <SpeakerWaveIcon className="h-6 w-6" />
+                            )}
                         </button>
                     </div>
                     <button>
