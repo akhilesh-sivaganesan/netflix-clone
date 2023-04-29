@@ -3,6 +3,8 @@ import Image from 'next/image'
 import { useRef, useState } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import useAuth from '../hooks/useAuth'
+import NetflixLoginImage from "../assets/netflix-login-cover.jpg"
+import NetflixLogo from "../assets/Netflix_2015_logo.svg"
 
 interface Inputs {
   email: string
@@ -30,20 +32,18 @@ function Login() {
   }
 
   return (
-    <div className="relative flex h-screen w-screen flex-col md:items-center md:justify-center">
+    <div className="relative flex h-screen w-screen flex-col md:items-center md:justify-center overflow-hidden">
       <Head>
         <title>Netflix</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Image
-        src="https://rb.gy/p2hphi"
-        layout="fill"
-        className="-z-10 !hidden opacity-60 sm:!inline"
-        objectFit="cover"
+      <img
+        src={NetflixLoginImage.src}
+        className="-z-10 !hidden opacity-60 sm:!inline absolute"
         alt="Alt"
       />
       <div className="absolute left-2 top-1 h-20 w-44 cursor-pointer md:left-8 md:top-4">
-        <Image src="https://rb.gy/ek4j9f" layout="fill" objectFit="contain" alt="Alt" />
+        <img src={NetflixLogo.src} alt="Alt" />
       </div>
 
       <form
